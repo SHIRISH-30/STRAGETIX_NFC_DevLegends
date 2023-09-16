@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Income Tax Calculator - New Tax Slabs 2023: Calculate Income Tax Online</title>
+    <meta name="description" content="Income Tax Calculator (FY 2022-23) - AY 2023-24: Online Calculate Income Tax based on declared union budget 2023 at. Check how to calculate Income Tax, know tax slabs online for easy calculation.">
+    <meta name="keywords" content="Income Tax Calculator, Income Tax Calculator FY 2022-23 &amp; AY 2023-24, tax calculator, calculate income tax, income tax calculator online, how to calculate income tax">
+    <meta content="Income Tax Calculator - New Tax Slabs 2023: Calculate Income Tax Online " property="og:title">
+    <meta content="Income Tax Calculator (FY 2022-23) - AY 2023-24: Online Calculate Income Tax based on declared union budget 2023 at Rohit Azad Malik UI Developer. Check how to calculate Income Tax, know tax slabs online for easy calculation." property="og:description">
+    <meta content="Rohit Azad Malik UI Developer" property="og:site_name">
+    <meta content="website" property="og:type">
+    <meta content="https://rohitazad.com" property="og:url">
+    <meta content="https://rohitazadmalik.netlify.app/assets/rohit_azad.jpg" property="og:image">
+    <link href="https://rohitazadmalik.netlify.app/assets/rohit_azad.jpg" rel="image_src">
+    <link rel="stylesheet" href="/stylesheets/calculate.css">
+    
+  </head>
+  <body>
+    <div class="container">
+      <h1>Income Tax Calculator</h1>
+      <p>Revised Income tax slabs under new tax regime for FY 2023-24 (AY 2024-25)</p>
+      <p>
+        The income tax slabs under the new income tax regime will be as follows:
+      </p>
+      <table class="myWrapTable">
+        <tbody>
+          <tr>
+            <td><strong>Income tax slabs under new tax regime</strong></td>
+            <td><strong>Income tax rates under new tax regime</strong></td>
+          </tr>
+          <tr><td>O to Rs 3 lakh</td><td>0</td></tr>
+          <tr><td>Rs 3 lakh to Rs 6 lakh</td><td>5%</td></tr>
+          <tr><td>Rs 6 lakh to Rs 9 lakh</td><td>10%</td></tr>
+          <tr><td>Rs 9 lakh to Rs 12 lakh</td><td>15%</td></tr>
+          <tr><td>Rs 12 lakh to Rs 15 lakh</td><td>20%</td></tr>
+          <tr><td>Income above Rs 15 lakh</td><td>30%</td></tr>
+        </tbody>
+      </table>
+
+      <form id="tax-form">
+        <div class="form-group">
+            <br>
+          <label for="income">Annual Income: New Slab</label>
+          <input type="number" id="income" name="income" placeholder="Enter your annual income" required />
+        </div>
+        <div class="form-group">
+          <button type="submit">Calculate Tax</button>
+        </div>
+      </form>
+
+      <div class="calcTax">
+        <label for="income">The estimated Income Tax is:<span class="con"></span></label>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+  <script src="/javascripts/calculate.js"></script>
+</html>

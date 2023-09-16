@@ -1,0 +1,128 @@
+#title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .center {
+    text-align: center;
+    margin: auto;
+    width: 50%;
+  }
+  
+  .hide {
+    visibility: hidden;
+  }
+  
+  #note {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 2rem;
+    width: 26rem;
+    font-size: smaller;
+  }
+  
+  input[type='text'] {
+    text-align: center;
+  }
+  
+  #form-table {
+    margin: auto;
+    width: 30%;
+  }
+  
+  #result {
+    width: fit-content;
+    font-size: larger;
+    margin-top: 3.125rem;
+    border-radius: 3.125rem;
+  }
+  
+  .bi-patch-check-fill {
+    font-size: 3rem;
+    color: limegreen;
+  }
+  
+  #result-table {
+    text-align: center;
+  }
+  
+  #result-table .container {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+  }
+  
+  .table-title {
+    background: coral;
+    border-radius: 0.313rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .table-header {
+    margin-left: 0.625rem;
+    margin-right: 0.625rem;
+    margin-top: 0.938rem;
+    margin-bottom: 0.625rem;
+    font-weight: 2;
+  }
+  
+  .table-header .badge {
+    font-size: 0.938rem;
+  }
+  
+  .table-header .col-md-4 {
+    font-weight: 2;
+  }
+  
+  .table-header > div:nth-child(2) {
+    margin-left: -1rem;
+  }
+  
+  .table-header > div:nth-child(3){
+    margin-left: 1rem;
+  }
+  
+  .accordion-button {
+    display: block;
+  }
+  
+  .arrow {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  
+  .accordion-button:not(.collapsed) div.arrow {
+    transform: rotate(180deg);
+  }
+  
+  .accordion-header {
+    line-height: 1.5;
+  }
+  
+  .row div {
+    text-align: center;
+  }
+  
+  div.row:not(.table-header) > .col-md-3 {
+    margin-left: -1rem;
+  }
+  
+  .accordion-body {
+    border: 0.25rem solid #86b7fe;
+    border-radius: 1rem;
+    margin: 1rem auto;
+  }
+  
+  .bi-dash-circle {
+    color: red;
+  }
+  
+  .bi-plus-circle {
+    color: green;
+  }
+  
+  .row.title {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }

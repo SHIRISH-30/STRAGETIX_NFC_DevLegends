@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Tax Savings Advisor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/images/taxback.jpg');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+            font-size: 16px; /* Increase font size for better readability */
+            font-family: Arial, sans-serif; /* Specify font family */
+        }
+
+        /* Add hover effect to the textarea */
+        textarea:hover {
+            border-color: #007bff;
+        }
+
+        /* Add focus effect to the textarea */
+        textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .response {
+            margin-top: 20px;
+            text-align: left; /* Align the response text to the left */
+            padding: 10px; /* Add padding for better readability */
+            border: 1px solid #ccc; /* Add a border for separation */
+            border-radius: 4px;
+            background-color: #f9f9f9; /* Set a light background color */
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 0; /* Remove the top margin for better alignment */
+        }
+
+        #answer {
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+        #prompt
+        {
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tax Savings Advisor</h1>
+        <form id="promptForm">
+            <label for="prompt">Ask a tax-saving question:</label>
+            <textarea id="prompt" rows="4" cols="50" placeholder="E.g., 'Add your salary'" required></textarea>
+            <button type="button" id="submitPrompt">Get Tax Advice</button>
+        </form>
+        <div class="response">
+            <h2>Tax Savings Advice:</h2>
+            <div id="answer"></div> <!-- Use a div for HTML response -->
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const promptForm = document.getElementById("promptForm");
+            const promptInput = document.getElementById("prompt");
+            const answerDisplay = document.getElementById("answer");
+
+            const apiKey = "Your API key"; // Replace with your OpenAI API key
+
+            document.getElementById("submitPrompt").addEventListener("click", async function () {
+                const prompt = promptInput.value.trim();
+
+                if (prompt === "") {
+                    alert("Please enter a tax-saving question.");
+                    return;
+                }
+
+                try {
+                    const response = await fetch("https://api.openai.com/v1/engines/text-davinci-002/completions", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${apiKey}`
+                        },
+                        body: JSON.stringify({
+                            prompt: prompt + "how to save tax and Give answer in 5 points",
+                            max_tokens: 100 // You can adjst this based on your needs
+                        })
+                    });
+
+                    const data = await response.json();
+                    const answer = data.choices[0].text;
+                    console.log(answer);
+
+                    // Format the plain text response as HTML (example: convert line breaks to <br>)
+                    const formattedAnswer = answer.replace(/\n/g, "<br>");
+
+                    // Set the formatted HTML response to the answerDisplay div
+                    answerDisplay.innerHTML = formattedAnswer;
+                } catch (error) {
+                    console.error("Error fetching data from OpenAI:", error);
+                    answerDisplay.textContent = "Error fetching data from OpenAI. Please try again later.";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

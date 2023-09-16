@@ -1,0 +1,97 @@
+/* Reset some default styles for better consistency */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color and text color for the entire page */
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    font-family: Arial, sans-serif;
+    display: flex; /* Use flexbox to center the container */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Vertically center the container */
+    align-items: center; /* Horizontally center the container */
+    min-height: 100vh; /* Make sure the container covers the full viewport height */
+}
+
+/* Style the header with background, text color, and padding */
+h1 {
+    position: fixed; /* Fix the header position */
+    top: 0; /* Position it at the top of the viewport */
+    background-color: #007BFF;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%; /* Make the header full width */
+    z-index: 100; /* Ensure it's on top of other content */
+}
+
+/* Style the span within the header */
+h1 span {
+    font-weight: bold;
+}
+
+/* Center the container and add some spacing */
+.container {
+    display: flex; /* Use flexbox */
+    flex-direction: row; /* Arrange items in a row (default) */
+    max-width: 1000px;
+    margin-top: 80px; /* Add margin to push content below the fixed header */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the image container (on the left) */
+.left {
+    flex: 1; /* Take up 1/2 of the container */
+    padding: 20px;
+}
+
+/* Style the image */
+.left img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Style the content container (on the right) */
+.right {
+    flex: 1; /* Take up 1/2 of the container */
+    padding: 20px;
+}
+
+/* Add some spacing between paragraphs */
+p {
+    margin-bottom: 20px;
+    font-size: 1.4vw;
+}
+
+/* Style the "Read More" button */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Make the page responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        padding: 10px;
+    }
+    .left, .right {
+        flex: none; /* Reset flex value to prevent stretching */
+        padding: 10px;
+    }
+}

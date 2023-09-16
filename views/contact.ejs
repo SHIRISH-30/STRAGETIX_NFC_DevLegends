@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email in NodeJs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            
+            margin: 0;
+        }
+
+        .container {
+            background-image: url("/images/bs.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+       
+
+        h2.header {
+            margin-bottom: 50px;
+        }
+
+        .contact {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 10px 10px 61px 0px rgba(0, 0, 0, 0.75);
+            text-align: center; /* Center-align the button */
+        }
+
+        .input {
+            padding: 5px;
+            margin: 2px;
+            width: 300px;
+           
+            border-radius: 4px;
+            transition: width 1s;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            padding: 10px;
+            width: 100px;
+            border-radius: 10px;
+            background-color: #454df4; /* BlueViolet */
+            font-size: 16px;
+            font-weight: 900;
+            opacity: 0.75;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            border-color: #e7e3ec;
+            opacity: 1;
+            box-shadow: 2px 2px 4px rgba(221, 219, 219, 0.2);
+            background-color: rgb(150, 195, 238);
+        }
+
+        .input:focus {
+            width: 306px;
+            border-color: #8a2be2;
+            box-shadow: 10px 10px 61px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        .message {
+            position: relative;
+            background-color: #ffa500; /* Orange */
+            width: 380px;
+            padding: 10px;
+            border-radius: 20px;
+            top: -180px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="header">Add your personal details</h2>
+        <div class="contact">
+            <form action="/send" method="get">
+                <input type="email" name="email1" id="email" placeholder="Type email-id" required class="input"><br>
+                <input type="text" name="subject" placeholder="Type subject here" required class="input"><br>
+                <textarea name="message" id="message" cols="60" rows="10" class="input" placeholder="Type message here..."></textarea><br>
+                <input type="submit" value="Send" name="send" class="btn">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

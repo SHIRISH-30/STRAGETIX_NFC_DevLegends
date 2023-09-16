@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/images/todo3.jpg');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #taskList {
+            width: 420px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        div input[type="text"],
+        div input[type="date"],
+        div select {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        div input[type="date"] {
+            background-color: #fff;
+        }
+
+        div input[type="text"]:focus,
+        div input[type="date"]:focus,
+        div select:focus {
+            border-color: #007bff;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        button.btn-danger {
+            background-color: #ff0000;
+            color: #fff;
+        }
+
+        .deadline {
+            color: #ff0000;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div id="taskList">
+        <h2>Advanced To-Do List</h2>
+        <div>
+            <input type="text" id="newTask" placeholder="New Task">
+            <input type="date" id="deadline">
+            <button onclick="addTask()">Add Task</button>
+        </div>
+        <br>
+        <div>
+            <label for="filter">Filter:</label>
+            <select id="filter" onchange="filterTasks()">
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="incomplete">Incomplete</option>
+            </select>
+        </div>
+        <br>
+        <ul id="tasks">
+            <!-- Tasks will be added here dynamically -->
+        </ul>
+    </div>
+
+    <script>
+        // Load tasks from local storage
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+        function saveTasks() {
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        function addTask() {
+            const taskText = document.getElementById("newTask").value;
+            const deadline = document.getElementById("deadline").value;
+
+            if (taskText.trim() === "") {
+                alert("Task name cannot be empty!");
+                return;
+            }
+
+            const task = {
+                text: taskText,
+                deadline: deadline,
+                completed: false
+            };
+
+            tasks.push(task);
+            saveTasks();
+            renderTasks();
+            document.getElementById("newTask").value = "";
+            document.getElementById("deadline").value = "";
+        }
+
+        function removeTask(index) {
+            tasks.splice(index, 1);
+            saveTasks();
+            renderTasks();
+        }
+
+        function toggleComplete(index) {
+            tasks[index].completed = !tasks[index].completed;
+            saveTasks();
+            renderTasks();
+        }
+
+        function filterTasks() {
+            const filter = document.getElementById("filter").value;
+            renderTasks(filter);
+        }
+
+        function renderTasks(filter = "all") {
+            const taskList = document.getElementById("tasks");
+            taskList.innerHTML = "";
+
+            for (let i = 0; i < tasks.length; i++) {
+                const task = tasks[i];
+                if (filter === "all" || (filter === "completed" && task.completed) || (filter === "incomplete" && !task.completed)) {
+                    const li = document.createElement("li");
+                    li.innerHTML = `
+                        <span class="${task.completed ? 'completed' : ''}">${task.text}</span>
+                        <span class="deadline">Deadline: ${task.deadline}</span>
+                        <button onclick="toggleComplete(${i})">${task.completed ? 'Uncomplete' : 'Complete'}</button>
+                        <button onclick="removeTask(${i})">Remove</button>
+                    `;
+                    taskList.appendChild(li);
+                }
+            }
+        }
+
+        renderTasks(); // Initial render
+
+    </script>
+</body>
+</html>

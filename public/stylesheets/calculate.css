@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/images/backs.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Make sure the body takes up the entire viewport height */
+}
+
+.container {
+    max-width: 500px;
+    padding: 20px;
+    background-color: beige; /* Off-white background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the content inside the container */
+}
+  /* Header background color */
+  h1 {
+    background-color: black; /* Blue background */
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    margin: 0;
+  }
+  
+  /* Form styles */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  input[type='number'] {
+    width: 97%;
+    padding: 7px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: black; /* Blue background for the button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+  }
+  
+  /* Table styles */
+  .myWrapTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ecf0f1; /* Light gray background for the table */
+    border-radius: 5px;
+  }
+  
+  .myWrapTable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .myWrapTable th {
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #f2f2f2; /* Light gray background for table header */
+    border-radius: 5px 5px 0 0;
+  }
+
+  .calcTax{
+    font-size: 150%;
+  }
+  
+  /* Responsive styles */
+  @media screen and (max-width: 768px) {
+    .container {
+      max-width: 100%;
+      padding: 10px;
+    }
+  
+    input[type='number'] {
+      margin-bottom: 15px;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }
