@@ -27,6 +27,10 @@ Before you begin, ensure you have met the following requirements:
 
 4.Add Api keys(RapidApi key,OpenAi)
 
+## Authors
+- [Shirish Shetty](https://github.com/SHIRISH-30)
+- [Parth Dabholkar](https://github.com/Parth-Dabholkar)
+
 5. run node server.js
    
 ![Hacks1](https://github.com/SHIRISH-30/NFC_DevLegends/assets/102011980/5e6cecca-9226-4427-a4fa-3861c94da34c)
